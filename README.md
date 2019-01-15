@@ -1,5 +1,5 @@
 # web-pdf-generator
-A web app for generating a PDF file from a specified URL (developed using Spring Boot, JMS & WebSocket)
+A web app for generating a PDF file from a specified URL (developed using Spring Boot, HtmlToPdf, JMS & WebSocket)
 
 # How to start
 1. Import the 3 Gradle projects via Eclipse / Spring Tool Suite.
