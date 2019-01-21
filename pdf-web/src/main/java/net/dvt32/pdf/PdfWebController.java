@@ -23,7 +23,7 @@ public class PdfWebController {
 	@Autowired 
 	private RestTemplate restTemplate;
 	
-	private static byte[] pdfFileBytes;
+	private static byte[] pdfFileBytes = null;
 	private static Logger logger = LoggerFactory.getLogger(PdfWebController.class);
 	
 	/*
@@ -51,7 +51,9 @@ public class PdfWebController {
 	    responseHeaders.setContentLength(pdfFileBytes.length);
 	    responseHeaders.set("Content-disposition", "attachment; filename=" + fileName);
 	    
-	    return new ResponseEntity<byte[]>(pdfFileBytes, responseHeaders, HttpStatus.OK);   
+	    ResponseEntity<byte[]> pdfFile = new ResponseEntity<byte[]>(pdfFileBytes, responseHeaders, HttpStatus.OK);
+	    
+	    return pdfFile;
 	}
 	
 	@PostMapping("/pdf-web/pdf-file")
