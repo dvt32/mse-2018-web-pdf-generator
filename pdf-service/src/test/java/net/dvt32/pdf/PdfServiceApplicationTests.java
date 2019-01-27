@@ -22,13 +22,35 @@ public class PdfServiceApplicationTests {
 	TestRestTemplate restTemplate = new TestRestTemplate();
 	
 	@Test
-	public void shouldReturnOKStatusCode() {
+	public void postRequestShouldReturnOKStatusCode() {
 		ResponseEntity response = restTemplate.postForEntity(
 			"http://localhost:8100/pdf-service", 
 			"google.bg",
 			null
 		);
 		assertTrue( response.getStatusCode() == HttpStatus.OK );
+	}
+	
+	@Test
+	public void postRequestShouldReturnBadRequestCode() {
+		ResponseEntity response = restTemplate.postForEntity(
+			"http://localhost:8100/pdf-service", 
+			"",
+			null
+		);
+		
+		assertTrue( response.getStatusCode() == HttpStatus.BAD_REQUEST );
+	}
+	
+	@Test
+	public void postRequestShouldReturnBadRequestCodeAgain() {
+		ResponseEntity response = restTemplate.postForEntity(
+			"http://localhost:8100/pdf-service", 
+			null,
+			null
+		);
+		
+		assertTrue( response.getStatusCode() == HttpStatus.BAD_REQUEST );
 	}
 	
 }
