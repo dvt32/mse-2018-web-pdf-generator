@@ -19,3 +19,4 @@ A web app for generating a PDF file from a specified URL (developed using Spring
 
 # To-do
 - Add unit / integration tests
+- Document code
